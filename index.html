@@ -124,15 +124,29 @@
       margin-bottom: 40px;
     }
 
+    .pkg-label {
+      font-family: 'Jost', sans-serif;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
     .package {
       border: 1px solid var(--rule);
       padding: 32px 36px;
       position: relative;
-      background: #fdf8f5;
+      background: #f2f5f8;
+    }
+
+    .package.blue {
+      border-color: #b2c4cc;
+      background: #f2f5f8;
     }
 
     .package.featured {
-      border-color: var(--accent-light);
+      border-color: var(--accent);
       background: linear-gradient(160deg, rgba(138,158,150,0.09) 0%, rgba(138,158,150,0.04) 100%);
     }
 
@@ -142,7 +156,7 @@
       justify-content: space-between;
       margin-bottom: 6px;
       flex-wrap: wrap;
-      gap: 8px;
+      gap: 4px;
     }
 
     .pkg-name {
@@ -151,6 +165,15 @@
       font-weight: 600;
       color: var(--bark);
       letter-spacing: 0.01em;
+    }
+
+    .pkg-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 6px;
+      flex-wrap: wrap;
+      gap: 4px;
     }
 
     .pkg-price {
@@ -210,6 +233,24 @@
 
     .pkg-features li strong {
       font-weight: 500;
+    }
+
+    .package.blue .pkg-features li,
+    .package.blue .pkg-features li strong {
+      color: #6a7e8a;
+    }
+
+    .package.blue .pkg-features li::before {
+      color: #8a9eaa;
+    }
+
+    .package.featured .pkg-features li,
+    .package.featured .pkg-features li strong {
+      color: var(--accent);
+    }
+
+    .package.featured .pkg-features li::before {
+      color: var(--accent-light);
     }
 
     .divider {
@@ -343,12 +384,13 @@
   <div class="packages">
 
     <!-- Package 1 -->
-    <div class="package">
+    <div class="package blue">
+      <p class="pkg-label" style="color: #6a7e8a;">Package 1</p>
       <div class="pkg-header">
-        <span class="pkg-name" style="color: #8a7a72;">Consult Package</span>
-        <span class="pkg-price" style="color: #9e8e86;">Free</span>
+        <span class="pkg-name" style="color: #6a7e8a;">Consult</span>
+        <span class="pkg-price" style="color: #6a7e8a;">Free</span>
       </div>
-      <span class="pkg-tag" style="background: #9e8e86;">Virtual · 3 Months</span>
+      <span class="pkg-tag" style="background: #8a9eaa;">Virtual · 3 Months</span>
       <ul class="pkg-features">
         <li><strong>1 initial 1:1 session</strong></li>
         <li><strong>4 follow-up 1:1 sessions</strong></li>
@@ -360,20 +402,21 @@
 
     <!-- Package 2 -->
     <div class="package featured">
+      <p class="pkg-label" style="color: var(--accent);">Package 2</p>
       <div class="pkg-header">
-        <span class="pkg-name" style="color: var(--accent);">Consult + Training Package</span>
-        <span class="pkg-price" style="color: var(--accent);">$150 CAD*</span>
+        <span class="pkg-name" style="color: var(--accent);">Consult + Training</span>
+        <span class="pkg-price" style="color: var(--accent);">$150*</span>
       </div>
-      <span class="pkg-tag bark">Virtual + In-Person · 4 Months</span>
+      <span class="pkg-tag bark">Hybrid · 4 Months</span>
       <p class="pkg-restriction">Available only within Greater Sudbury, Ontario</p>
       <ul class="pkg-features">
-        <li>Everything included in the Consult Package, plus:</li>
+        <li>Everything in the virtual Consult Package, plus:</li>
         <li><strong>4 in-person sessions</strong>, Agneta works directly with your dog</li>
         <li><strong>Foundation skill-building</strong> to accelerate your dog's learning</li>
         <li><strong>Knowledge transfer</strong> after each session so you can continue building on what was covered</li>
         <li><strong>Flexible attendance</strong>, option for Agneta to work with your dog without you present, if appropriate for the behaviour being addressed</li>
       </ul>
-      <p class="pkg-note">* Discounted beta rate</p>
+      <p class="pkg-note">* Discounted beta rate in CAD</p>
     </div>
 
   </div>
