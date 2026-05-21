@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Beta Program — Agneta Szabo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream: #faf5f4;
+      --warm-white: #fdf9f8;
+      --bark: #5a4a4a;
+      --bark-light: #7a6060;
+      --sage: #b08a8a;
+      --sage-light: #c9a8a8;
+      --stone: #a09090;
+      --ink: #2e2424;
+      --rule: #e4d4d0;
+      --accent: #8a9e96;
+      --accent-light: #b2c4bc;
+    }
+
+    @media print {
+      body { background: white; }
+      .page { box-shadow: none; max-width: 100%; padding: 32px 48px; }
+    }
+
+    body {
+      background: #e8dbd8;
+      font-family: 'Jost', sans-serif;
+      color: var(--ink);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 48px 16px;
+    }
+
+    .page {
+      background: var(--warm-white);
+      max-width: 720px;
+      width: 100%;
+      padding: 64px 72px 24px;
+      box-shadow: 0 8px 48px rgba(80,50,50,0.12);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Decorative corner accent */
+    .page::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 140px; height: 140px;
+      background: linear-gradient(135deg, var(--sage-light) 0%, transparent 60%);
+      opacity: 0.22;
+    }
+    .page::after {
+      content: '';
+      position: absolute;
+      bottom: 0; right: 0;
+      width: 180px; height: 180px;
+      background: radial-gradient(circle at bottom right, var(--accent) 0%, transparent 65%);
+      opacity: 0.1;
+    }
+
+    /* Header */
+    header {
+      border-bottom: 1px solid var(--rule);
+      padding-bottom: 28px;
+      margin-bottom: 36px;
+    }
+
+    .eyebrow {
+      font-family: 'Jost', sans-serif;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--sage);
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 42px;
+      font-weight: 300;
+      line-height: 1.1;
+      color: var(--bark);
+      letter-spacing: -0.01em;
+    }
+
+    h1 em {
+      font-style: italic;
+      font-weight: 300;
+      color: var(--bark-light);
+    }
+
+    .subhead {
+      margin-top: 10px;
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--stone);
+      letter-spacing: 0.04em;
+    }
+
+    /* Intro */
+    .intro {
+      font-size: 14px;
+      font-weight: 300;
+      line-height: 1.75;
+      color: var(--ink);
+      margin-bottom: 40px;
+      max-width: 540px;
+    }
+
+    /* Package cards */
+    .packages {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+      margin-bottom: 40px;
+    }
+
+    .package {
+      border: 1px solid var(--rule);
+      padding: 32px 36px;
+      position: relative;
+      background: #fdf8f5;
+    }
+
+    .package.featured {
+      border-color: var(--accent-light);
+      background: linear-gradient(160deg, rgba(138,158,150,0.09) 0%, rgba(138,158,150,0.04) 100%);
+    }
+
+    .pkg-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 6px;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .pkg-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--bark);
+      letter-spacing: 0.01em;
+    }
+
+    .pkg-price {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--sage);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .pkg-tag {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--warm-white);
+      background: var(--sage);
+      padding: 3px 10px;
+      margin-bottom: 14px;
+      display: inline-block;
+    }
+
+    .pkg-tag.bark { background: var(--accent); }
+
+    .pkg-restriction {
+      font-size: 11px;
+      font-weight: 400;
+      color: var(--accent);
+      letter-spacing: 0.05em;
+      margin-bottom: 18px;
+      font-style: italic;
+    }
+
+    .pkg-features {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+    }
+
+    .pkg-features li {
+      font-size: 13px;
+      font-weight: 300;
+      line-height: 1.5;
+      color: var(--ink);
+      padding-left: 18px;
+      position: relative;
+    }
+
+    .pkg-features li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--accent-light);
+      font-weight: 300;
+    }
+
+    .pkg-features li strong {
+      font-weight: 500;
+    }
+
+    .divider {
+      width: 32px;
+      height: 1px;
+      background: var(--rule);
+      margin: 18px 0;
+    }
+
+    .pkg-note {
+      font-size: 11px;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--accent);
+      letter-spacing: 0.05em;
+      line-height: 1.6;
+      margin-top: 14px;
+    }
+
+    /* Shared notes */
+    .shared-notes {
+      border: 1px solid var(--rule);
+      padding: 20px 28px;
+      margin-top: 16px;
+      margin-bottom: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .shared-notes-label {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--sage);
+      margin-bottom: 4px;
+    }
+
+    .shared-notes p {
+      font-size: 12px;
+      font-weight: 300;
+      color: var(--stone);
+      line-height: 1.6;
+    }
+
+    .shared-notes a {
+      color: var(--bark-light);
+      text-decoration: none;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    /* Footer / register */
+    .register-section {
+      border-top: 1px solid var(--rule);
+      padding-top: 28px;
+    }
+
+    .register-label {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--sage);
+      margin-bottom: 14px;
+    }
+
+    .register-body {
+      font-size: 12px;
+      font-weight: 300;
+      color: var(--stone);
+      line-height: 1.6;
+      margin-top: 16px;
+    }
+
+    .register-body a {
+      color: var(--bark-light);
+      text-decoration: none;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .policy-section {
+      border-top: 1px solid var(--rule);
+      padding-top: 20px;
+      margin-top: 28px;
+    }
+
+    .policy-text {
+      font-size: 11px;
+      font-weight: 300;
+      color: var(--stone);
+      line-height: 1.7;
+    }
+
+    .policy-text a {
+      color: var(--bark-light);
+      text-decoration: none;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .name-line {
+      margin-top: 36px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 12px;
+      font-style: italic;
+      color: var(--rule);
+      text-align: right;
+      letter-spacing: 0.05em;
+    }
+
+    @media (max-width: 600px) {
+      .page { padding: 40px 28px; }
+      h1 { font-size: 32px; }
+      .register-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <header>
+    <p class="eyebrow">Beta Program</p>
+    <h1>Agneta Szabó<br><em>Dog Behaviour &amp; Training</em></h1>
+    <p class="subhead">Two package options &nbsp;·&nbsp; Limited availability</p>
+  </header>
+
+  <p class="intro">
+    This beta program offers dog behaviour and training support in exchange for honest feedback and a testimonial if you loved working together.
+  </p>
+
+  <div class="packages">
+
+    <!-- Package 1 -->
+    <div class="package">
+      <div class="pkg-header">
+        <span class="pkg-name" style="color: #8a7a72;">Consult Package</span>
+        <span class="pkg-price" style="color: #9e8e86;">Free</span>
+      </div>
+      <span class="pkg-tag" style="background: #9e8e86;">Virtual · 3 Months</span>
+      <ul class="pkg-features">
+        <li><strong>1 initial 1:1 session</strong></li>
+        <li><strong>4 follow-up 1:1 sessions</strong></li>
+        <li><strong>Weekly group office hours</strong>, Saturdays alternating 2 PM &amp; 7 PM ET</li>
+        <li><strong>Personalized training plan</strong> with curated resources</li>
+        <li><strong>Email support</strong> between sessions</li>
+      </ul>
+    </div>
+
+    <!-- Package 2 -->
+    <div class="package featured">
+      <div class="pkg-header">
+        <span class="pkg-name" style="color: var(--accent);">Consult + Training Package</span>
+        <span class="pkg-price" style="color: var(--accent);">$150 CAD*</span>
+      </div>
+      <span class="pkg-tag bark">Virtual + In-Person · 4 Months</span>
+      <p class="pkg-restriction">Available only within Greater Sudbury, Ontario</p>
+      <ul class="pkg-features">
+        <li>Everything included in the Consult Package, plus:</li>
+        <li><strong>4 in-person sessions</strong>, Agneta works directly with your dog</li>
+        <li><strong>Foundation skill-building</strong> to accelerate your dog's learning</li>
+        <li><strong>Knowledge transfer</strong> after each session so you can continue building on what was covered</li>
+        <li><strong>Flexible attendance</strong>, option for Agneta to work with your dog without you present, if appropriate for the behaviour being addressed</li>
+      </ul>
+      <p class="pkg-note">* Discounted beta rate</p>
+    </div>
+
+  </div>
+
+  <!-- Register -->
+  <div class="register-section">
+    <p class="register-label">How to Register</p>
+    <p class="register-body">Email <a href="mailto:agneta.dogtraining@gmail.com">agneta.dogtraining@gmail.com</a> with the subject line <em>"Beta Registration"</em> to express your interest, and I'll be in touch to confirm the program is a good fit.</p>
+    <div class="shared-notes">
+      <p class="shared-notes-label">Please Note</p>
+      <p><strong style="color: var(--ink); font-weight: 500;">Initial session must be booked within 2 weeks of registering. The program duration begins from the date of your initial session.</strong></p>
+      <p>A stable internet connection is required. Clients should also be comfortable <a href="https://docs.google.com/document/d/1IlYXYTjQYAU4-wmSF5SZ9EkGkYiPMkoT9uR1I9zIj0o/edit?usp=drive_link" target="_blank">filming their training sessions</a> between appointments.</p>
+      <p><a href="https://docs.google.com/document/d/1wQIe_RPuIg79ePDGRjNTjvjwIFJ9uvioN0Nb_eC0HO4/edit?usp=sharing" target="_blank">Click here</a> to learn more about the benefits of virtual consults.</p>
+    </div>
+  </div>
+
+  <div class="policy-section">
+    <p class="register-label">Policies</p>
+    <p class="policy-text">All payments are non-refundable. Sessions missed or cancelled with less than 24 hours notice are considered used. Beta pricing is a limited time discounted rate and is not guaranteed beyond the current program period. For full terms see the <a href="https://drive.google.com/file/d/1LOhyPjCuRZn8FDicHm5L56urHxjU9iHA/view?usp=drivesdk" target="_blank">Services Agreement and Liability Waiver</a>.</p>
+  </div>
+
+  <p class="name-line">Agneta Szabó &nbsp;·&nbsp; Dog Behaviour &amp; Training</p>
+
+</div>
+</body>
+</html>
