@@ -403,18 +403,28 @@
       letter-spacing: 0.05em;
     }
 
+    .corner-logo {
+      position: absolute;
+      top: 0px;
+      right: 72px;
+      width: 240px;
+      height: 240px;
+      opacity: 0.9;
+      z-index: 0;
+    }
+
     @media (max-width: 600px) {
       .page { padding: 40px 28px; }
       h1 { font-size: 32px; }
       .register-grid { grid-template-columns: 1fr; }
-      .page img { width: 140px; height: 140px; right: 28px; }
+      .corner-logo { width: 120px; height: 120px; right: 28px; top: 0px; }
     }
   </style>
 </head>
 <body>
 <div class="page">
 
-  <img src="https://i.imgur.com/xWPunfu.png" alt="Blossom Dog Behaviour & Training" style="position: absolute; top: 0px; right: 72px; width: 240px; height: 240px; opacity: 0.9; z-index: 0;">
+  <img src="https://i.imgur.com/xWPunfu.png" alt="Blossom Dog Behaviour & Training" class="corner-logo">
 
   <header>
     <p class="eyebrow">Beta Program</p>
