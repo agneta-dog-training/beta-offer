@@ -29,7 +29,7 @@
     }
 
     body {
-      background: #e8dbd8;
+      background: #e8e3df;
       font-family: 'Jost', sans-serif;
       color: var(--ink);
       min-height: 100vh;
@@ -44,12 +44,11 @@
       max-width: 720px;
       width: 100%;
       padding: 64px 72px 24px;
-      box-shadow: 0 8px 48px rgba(80,50,50,0.12);
+      box-shadow: 0 8px 48px rgba(90,75,72,0.10);
       position: relative;
       overflow: hidden;
     }
 
-    /* Decorative corner accent */
     .page::before {
       content: '';
       position: absolute;
@@ -67,11 +66,9 @@
       opacity: 0.1;
     }
 
-    /* Header */
     header {
-      border-bottom: 1px solid var(--rule);
-      padding-bottom: 28px;
-      margin-bottom: 36px;
+      padding-bottom: 4px;
+      margin-bottom: 0;
       position: relative;
       z-index: 1;
     }
@@ -84,29 +81,38 @@
       text-transform: uppercase;
       color: var(--sage);
       margin-bottom: 10px;
+      text-align: left;
     }
 
     h1 {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 42px;
+      font-size: 28px;
       font-weight: 300;
-      line-height: 1.1;
+      line-height: 1.2;
       color: var(--bark);
       letter-spacing: -0.01em;
+      text-align: center;
     }
 
-    h1 em {
+    h1 .blossom {
       font-style: normal;
       font-weight: 300;
-      font-size: 22px;
-      color: var(--bark-light);
-      letter-spacing: 0.08em;
+      color: var(--bark);
     }
 
-    h1 em {
+    h1 .divider-dot {
+      font-style: normal;
+      color: var(--bark);
+      margin: 0 0.3em;
+      font-weight: 300;
+    }
+
+    h1 .subtitle {
       font-style: italic;
       font-weight: 300;
-      color: var(--bark-light);
+      font-size: 28px;
+      color: var(--bark);
+      letter-spacing: 0.01em;
     }
 
     .subhead {
@@ -117,65 +123,40 @@
       letter-spacing: 0.04em;
     }
 
-    /* Intro */
+
+
     .intro {
       font-size: 13px;
       font-weight: 300;
       line-height: 1.75;
       color: var(--bark-light);
-      margin-bottom: 40px;
+      margin-top: 8px;
+      margin-bottom: 36px;
       max-width: 540px;
-    }
-
-    /* Package cards */
-    .packages {
-      display: flex;
-      flex-direction: column;
-      gap: 28px;
-      margin-bottom: 40px;
-    }
-
-    .info-icon {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 16px;
-      height: 16px;
-      border-radius: 50%;
-      font-family: 'Cormorant Garamond', serif;
-      font-style: italic;
-      font-size: 11px;
-      color: white;
-      text-decoration: none;
-      margin-left: 6px;
-      vertical-align: middle;
       position: relative;
-      top: -1px;
+      z-index: 1;
     }
 
-    .pkg-label {
+    .section-label {
       font-family: 'Jost', sans-serif;
       font-size: 10px;
       font-weight: 500;
       letter-spacing: 0.2em;
       text-transform: uppercase;
-      margin-bottom: 8px;
+      color: var(--sage);
+      margin-bottom: 14px;
     }
 
+    /* Package card */
     .package {
       border: 1px solid var(--rule);
       padding: 32px 36px;
       position: relative;
     }
 
-    .package.blue {
+    .package.featured {
       border-color: #7a9199;
       background: linear-gradient(160deg, rgba(122,145,153,0.09) 0%, rgba(122,145,153,0.04) 100%);
-    }
-
-    .package.featured {
-      border-color: var(--accent);
-      background: linear-gradient(160deg, rgba(138,158,150,0.09) 0%, rgba(138,158,150,0.04) 100%);
     }
 
     .pkg-header {
@@ -192,16 +173,6 @@
       font-size: 22px;
       font-weight: 600;
       color: var(--bark);
-      letter-spacing: 0.01em;
-    }
-
-    .pkg-header {
-      display: flex;
-      align-items: baseline;
-      justify-content: space-between;
-      margin-bottom: 6px;
-      flex-wrap: wrap;
-      gap: 4px;
     }
 
     .pkg-price {
@@ -217,22 +188,11 @@
       font-weight: 500;
       letter-spacing: 0.15em;
       text-transform: uppercase;
-      color: var(--warm-white);
-      background: var(--sage);
+      color: #eef2f4;
+      background: #7a9199;
       padding: 3px 10px;
-      margin-bottom: 14px;
-      display: inline-block;
-    }
-
-    .pkg-tag.bark { background: var(--accent); color: #edf0ee; }
-
-    .pkg-restriction {
-      font-size: 11px;
-      font-weight: 400;
-      color: var(--accent);
-      letter-spacing: 0.05em;
       margin-bottom: 18px;
-      font-style: italic;
+      display: inline-block;
     }
 
     .pkg-features {
@@ -246,7 +206,7 @@
       font-size: 13px;
       font-weight: 300;
       line-height: 1.5;
-      color: var(--ink);
+      color: #7a9199;
       padding-left: 18px;
       position: relative;
     }
@@ -255,40 +215,158 @@
       content: '—';
       position: absolute;
       left: 0;
-      color: var(--accent-light);
+      color: #7a9199;
       font-weight: 300;
     }
 
     .pkg-features li strong {
       font-weight: 500;
-    }
-
-    .package.blue .pkg-features li,
-    .package.blue .pkg-features li strong {
       color: #7a9199;
     }
 
-    .package.blue .pkg-features li::before {
-      color: #7a9199;
+    /* OPTION B: Virtual benefits inline inside the package card */
+    .virtual-inline {
+      margin-top: 20px;
+      padding-top: 18px;
+      border-top: 1px solid rgba(122,145,153,0.25);
     }
 
-    .package.featured .pkg-features li,
-    .package.featured .pkg-features li strong {
+    .virtual-inline-label {
+      font-family: 'Jost', sans-serif;
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #7a9199;
+      margin-bottom: 10px;
+    }
+
+    .virtual-inline-intro {
+      font-size: 12px;
+      font-weight: 300;
+      line-height: 1.7;
+      color: #7a9199;
+      margin-bottom: 12px;
+      font-style: italic;
+    }
+
+    .virtual-inline-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+
+    .virtual-inline-list li {
+      font-size: 12px;
+      font-weight: 300;
+      line-height: 1.5;
+      color: #7a9199;
+      padding-left: 16px;
+      position: relative;
+    }
+
+    .virtual-inline-list li::before {
+      content: '·';
+      position: absolute;
+      left: 2px;
+      color: #7a9199;
+      font-size: 14px;
+      line-height: 1.3;
+    }
+
+    .virtual-inline-list li strong {
+      font-weight: 500;
+    }
+
+    /* Add-on */
+    .addon-wrapper {
+      margin-top: 32px;
+      margin-bottom: 32px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .addon-block {
+      border: 1px solid var(--accent);
+      padding: 28px 36px;
+      background: linear-gradient(160deg, rgba(138,158,150,0.09) 0%, rgba(138,158,150,0.04) 100%);
+    }
+
+    .addon-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 4px;
+      margin-bottom: 6px;
+    }
+
+    .addon-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      font-weight: 600;
       color: var(--accent);
     }
 
-    .package.featured .pkg-features li::before {
+    .addon-price {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--accent);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .addon-tag {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #edf0ee;
+      background: var(--accent);
+      padding: 3px 10px;
+      margin-bottom: 10px;
+      display: inline-block;
+    }
+
+    .addon-restriction {
+      font-size: 11px;
+      font-weight: 400;
+      color: var(--accent);
+      letter-spacing: 0.05em;
+      margin-bottom: 16px;
+      font-style: italic;
+    }
+
+    .addon-features {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+    }
+
+    .addon-features li {
+      font-size: 13px;
+      font-weight: 300;
+      line-height: 1.5;
+      color: var(--accent);
+      padding-left: 18px;
+      position: relative;
+    }
+
+    .addon-features li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
       color: var(--accent-light);
     }
 
-    .divider {
-      width: 32px;
-      height: 1px;
-      background: var(--rule);
-      margin: 18px 0;
+    .addon-features li strong {
+      font-weight: 500;
+      color: var(--accent);
     }
 
-    .pkg-note {
+    .addon-note {
       font-size: 11px;
       font-weight: 400;
       font-style: italic;
@@ -298,12 +376,42 @@
       margin-top: 14px;
     }
 
-    /* Shared notes */
+    /* Register */
+    .register-section {
+      border-top: 1px solid var(--rule);
+      padding-top: 28px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .register-label {
+      font-family: 'Jost', sans-serif;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--sage);
+      margin-bottom: 14px;
+    }
+
+    .register-body {
+      font-size: 12px;
+      font-weight: 300;
+      color: var(--stone);
+      line-height: 1.6;
+      margin-top: 16px;
+    }
+
+    .register-body a {
+      color: var(--bark-light);
+      text-decoration: none;
+      border-bottom: 1px solid var(--rule);
+    }
+
     .shared-notes {
       border: 1px solid var(--rule);
       padding: 20px 28px;
       margin-top: 16px;
-      margin-bottom: 0;
       display: flex;
       flex-direction: column;
       gap: 8px;
@@ -332,40 +440,12 @@
       border-bottom: 1px solid var(--rule);
     }
 
-    /* Footer / register */
-    .register-section {
-      border-top: 1px solid var(--rule);
-      padding-top: 28px;
-    }
-
-    .register-label {
-      font-family: 'Jost', sans-serif;
-      font-size: 10px;
-      font-weight: 500;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--sage);
-      margin-bottom: 14px;
-    }
-
-    .register-body {
-      font-size: 12px;
-      font-weight: 300;
-      color: var(--stone);
-      line-height: 1.6;
-      margin-top: 16px;
-    }
-
-    .register-body a {
-      color: var(--bark-light);
-      text-decoration: none;
-      border-bottom: 1px solid var(--rule);
-    }
-
     .policy-section {
       border-top: 1px solid var(--rule);
       padding-top: 20px;
       margin-top: 28px;
+      position: relative;
+      z-index: 1;
     }
 
     .policy-text {
@@ -381,6 +461,36 @@
       border-bottom: 1px solid var(--rule);
     }
 
+    .name-line {
+      margin-top: 36px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 12px;
+      font-style: italic;
+      color: var(--rule);
+      text-align: right;
+      letter-spacing: 0.05em;
+    }
+
+    .header-banner {
+      width: calc(100% + 144px);
+      margin-left: -72px;
+      margin-top: 0;
+      margin-bottom: 0;
+      display: block;
+      position: relative;
+      z-index: 1;
+      line-height: 0;
+      font-size: 0;
+      overflow: hidden;
+    }
+
+    .header-banner img {
+      width: 100%;
+      margin-left: 0;
+      display: block;
+      height: auto;
+    }
+
     .contact-footer {
       text-align: center;
       padding: 16px 0 8px;
@@ -393,87 +503,85 @@
       width: 100%;
     }
 
-    .name-line {
-      margin-top: 36px;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 12px;
-      font-style: italic;
-      color: var(--rule);
-      text-align: right;
-      letter-spacing: 0.05em;
-    }
 
-    .corner-logo {
-      position: absolute;
-      top: 0px;
-      right: 72px;
-      width: 240px;
-      height: 240px;
-      opacity: 0.9;
-      z-index: 0;
-    }
 
     @media (max-width: 600px) {
       .page { padding: 40px 28px; }
       h1 { font-size: 32px; }
-      .register-grid { grid-template-columns: 1fr; }
-      .corner-logo { width: 120px; height: 120px; right: 8px; top: 55px; }
+      .header-banner { width: calc(100% + 56px); margin-left: -28px; }
     }
   </style>
 </head>
 <body>
-<div class="page">
 
-  <img src="https://i.imgur.com/xWPunfu.png" alt="Blossom Dog Behaviour & Training" class="corner-logo">
+
+
+<div class="page">
 
   <header>
     <p class="eyebrow">Beta Program</p>
-    <h1>Blossom<br><em>Dog Behaviour &amp; Training</em></h1>
-    <p class="subhead">Two package options &nbsp;·&nbsp; Limited availability</p>
+    <h1><span class="blossom">Blossom</span><span class="divider-dot">·</span><span class="subtitle">Dog Behaviour &amp; Training</span></h1>
   </header>
 
+  <div class="header-banner">
+    <img src="https://i.imgur.com/0liIkZQ.png" alt="Blossom Dog Behaviour & Training">
+  </div>
+
   <p class="intro">
-    Hi, I'm Agneta. This beta program offers dog behaviour and training support in exchange for honest feedback and a testimonial if you loved working together.
+    Hi, I'm Agneta.<br><br>
+    This beta program offers dog behaviour and training support in exchange for honest feedback and a testimonial if you loved working together.<br><br>
+    I work with behaviours like barking, growling, anxiety and fear, stressful grooming or vet visits, over-excitability, leash pulling, recall, and helping puppies or adult dogs settle into a new home.<br><br>
+    For behaviour concerns that involve biting, I'm happy to have a conversation and see whether it's within my current scope.<br><br>
+    I don't use methods that rely on pain, fear, or intimidation. My focus is on understanding the whole picture and finding practical solutions that work for both dog and human.
   </p>
 
-  <div class="packages">
+  <!-- Single package with virtual FAQ tucked inside -->
+  <div class="section-label" style="position:relative;z-index:1;color:#7a9199;">What's included</div>
+  <div class="package featured" style="position:relative;z-index:1;margin-bottom:32px;">
+    <div class="pkg-header">
+      <span class="pkg-name" style="color: #7a9199;">Dog Behaviour Solutions</span>
+      <span class="pkg-price" style="color: #7a9199;">Free</span>
+    </div>
+    <span class="pkg-tag">Virtual · 3 Months</span>
+    <ul class="pkg-features">
+      <li><strong>1 initial 1:1 session</strong></li>
+      <li><strong>4 follow-up 1:1 sessions</strong></li>
+      <li><strong>Weekly group office hours</strong>, Saturdays alternating 2 PM &amp; 7 PM ET</li>
+      <li><strong>Personalized training plan</strong> with curated resources</li>
+      <li><strong>Email support</strong> between sessions</li>
+    </ul>
 
-    <!-- Package 1 -->
-    <div class="package blue">
-      <p class="pkg-label" style="color: #7a9199;">Package 1</p>
-      <div class="pkg-header">
-        <span class="pkg-name" style="color: #7a9199;">Consult</span>
-        <span class="pkg-price" style="color: #7a9199;">Free</span>
-      </div>
-      <span class="pkg-tag" style="background: #7a9199; color: #eef2f4;">Virtual · 3 Months</span><a href="https://docs.google.com/document/d/1wQIe_RPuIg79ePDGRjNTjvjwIFJ9uvioN0Nb_eC0HO4/edit?usp=sharing" target="_blank" class="info-icon" style="background: #7a9199;">i</a>
-      <ul class="pkg-features">
-        <li><strong>1 initial 1:1 session</strong></li>
-        <li><strong>4 follow-up 1:1 sessions</strong></li>
-        <li><strong>Weekly group office hours</strong>, Saturdays alternating 2 PM &amp; 7 PM ET</li>
-        <li><strong>Personalized training plan</strong> with curated resources</li>
-        <li><strong>Email support</strong> between sessions</li>
+    <!-- OPTION B: Virtual benefits tucked inline, below the feature list, inside the card -->
+    <div class="virtual-inline">
+      <p class="virtual-inline-label">Why virtual works</p>
+      <p class="virtual-inline-intro">[Pull wording from UYB recording on why virtual is better]</p>
+      <ul class="virtual-inline-list">
+        <li><strong>[Benefit 1]</strong> — placeholder text here</li>
+        <li><strong>[Benefit 2]</strong> — placeholder text here</li>
+        <li><strong>[Benefit 3]</strong> — placeholder text here</li>
+        <li><strong>[Benefit 4]</strong> — placeholder text here</li>
       </ul>
     </div>
+  </div>
 
-    <!-- Package 2 -->
-    <div class="package featured">
-      <p class="pkg-label" style="color: var(--accent);">Package 2</p>
-      <div class="pkg-header">
-        <span class="pkg-name" style="color: var(--accent);">Consult + Training</span>
-        <span class="pkg-price" style="color: var(--accent);">$150*</span>
+  <!-- Add-on -->
+  <div class="addon-wrapper">
+    <div class="section-label" style="color:var(--accent);">Optional Add-on</div>
+    <div class="addon-block">
+      <div class="addon-header">
+        <span class="addon-name">Hands-On Training</span>
+        <span class="addon-price">$150 CAD*</span>
       </div>
-      <span class="pkg-tag bark">Hybrid · 4 Months</span><a href="https://docs.google.com/document/d/1zNs7EMOANigtyOJRfcFq1P47GqoqjwSjKpxp8mjl-K4/edit?usp=sharing" target="_blank" class="info-icon" style="background: var(--accent);">i</a>
-      <p class="pkg-restriction">Available only within Greater Sudbury, Ontario</p>
-      <ul class="pkg-features">
-        <li>Everything in the virtual Consult Package, plus:</li>
-        <li><strong>4 in-person sessions</strong>, Agneta works directly with your dog</li>
-        <li><strong>Foundation skill-building</strong> to accelerate your dog's learning</li>
+      <span class="addon-tag">In Person &nbsp;·&nbsp; 4 Sessions</span>
+      <p class="addon-restriction">Available only within Greater Sudbury, Ontario</p>
+      <ul class="addon-features">
+        <li><strong>4 in-person sessions</strong> — Agneta works directly with your dog</li>
+        <li><strong>Foundation skill building</strong> to accelerate your dog's learning</li>
         <li><strong>Knowledge transfer</strong> after each session so you can continue building on what was covered</li>
-        <li><strong>Flexible attendance</strong>, option for Agneta to work with your dog without you present, if appropriate for the behaviour being addressed</li>
+        <li><strong>Flexible attendance</strong> — option for Agneta to work with your dog without you present, if appropriate for the behaviour being addressed</li>
       </ul>
-      <p class="pkg-note">* Discounted beta rate in CAD</p>
+      <p class="addon-note">* Discounted beta rate in CAD.</p>
     </div>
-
   </div>
 
   <!-- Register -->
@@ -482,9 +590,8 @@
     <p class="register-body">Email <a href="mailto:agneta.dogtraining@gmail.com">agneta.dogtraining@gmail.com</a> with the subject line <em>"Beta Registration"</em> to express your interest, and I'll be in touch to confirm the program is a good fit.</p>
     <div class="shared-notes">
       <p class="shared-notes-label">Please Note</p>
-      <p><strong style="color: var(--bark-light); font-weight: 500;">Initial session must be booked within 2 weeks of registering. The program duration begins from the date of your initial session.</strong></p>
+      <p><strong style="color: var(--bark-light); font-weight: 500;">Initial session must be booked within 2 weeks of registering. Your 3-month package begins on that date.</strong></p>
       <p>A stable internet connection is required. Clients should also be comfortable <a href="https://docs.google.com/document/d/1IlYXYTjQYAU4-wmSF5SZ9EkGkYiPMkoT9uR1I9zIj0o/edit?usp=drive_link" target="_blank">filming their training sessions</a> between appointments.</p>
-      <p><a href="https://docs.google.com/document/d/1wQIe_RPuIg79ePDGRjNTjvjwIFJ9uvioN0Nb_eC0HO4/edit?usp=sharing" target="_blank">Click here</a> to learn more about the benefits of virtual consults.</p>
     </div>
   </div>
 
