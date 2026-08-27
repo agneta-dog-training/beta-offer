@@ -46,7 +46,7 @@
       padding: 64px 72px 24px;
       box-shadow: 0 8px 48px rgba(90,75,72,0.10);
       position: relative;
-      overflow: hidden;
+      overflow-x: hidden;
     }
 
     .page::before {
@@ -443,13 +443,19 @@
     .policy-section {
       border-top: 1px solid var(--rule);
       padding-top: 20px;
+      padding-left: 72px;
+      padding-right: 72px;
       margin-top: 28px;
       position: relative;
       z-index: 1;
+      max-width: 720px;
+      width: 100%;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .policy-text {
-      font-size: 15px;
+      font-size: 16px;
       font-weight: 300;
       color: var(--stone);
       line-height: 1.7;
@@ -640,11 +646,9 @@
     </div>
   </div>
 
-  </div>
-
   <div class="policy-section">
     <p class="register-label">Policies</p>
-    <p class="policy-text">Pricing is a limited time discounted rate. All payments are non-refundable. This is a 4-month package, and all sessions must be completed within that time frame. Sessions missed or cancelled with less than 24 hours notice are considered used.</p>
+    <p class="policy-text">This is a 4-month package, and all sessions must be completed within that time frame. Sessions missed or cancelled with less than 24 hours notice are considered used. Pricing is a limited time discounted rate. All payments are non-refundable.</p>
   </div>
 
   <p class="name-line"><span style="font-style: normal;">Blossom</span> &nbsp;·&nbsp; Dog Behaviour &amp; Training</p>
