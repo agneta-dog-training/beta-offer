@@ -522,6 +522,63 @@
     }
 
 
+    .faq-item {
+      border-bottom: 1px solid var(--rule);
+      padding: 20px 0;
+    }
+    .faq-item:first-of-type {
+      border-top: 1px solid var(--rule);
+    }
+    .faq-item summary {
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      font-family: 'Jost', sans-serif;
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--bark);
+      line-height: 1.5;
+    }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary::marker { content: ''; }
+    .faq-icon {
+      flex-shrink: 0;
+      width: 18px;
+      height: 18px;
+      position: relative;
+    }
+    .faq-icon::before, .faq-icon::after {
+      content: '';
+      position: absolute;
+      background: #7a9199;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+    .faq-icon::before {
+      top: 50%; left: 0;
+      width: 100%; height: 1px;
+      transform: translateY(-50%);
+    }
+    .faq-icon::after {
+      left: 50%; top: 0;
+      width: 1px; height: 100%;
+      transform: translateX(-50%);
+    }
+    .faq-item[open] .faq-icon::after {
+      opacity: 0;
+      transform: translateX(-50%) rotate(90deg);
+    }
+    .faq-answer {
+      margin-top: 14px;
+      font-size: 15px;
+      font-weight: 300;
+      line-height: 1.75;
+      color: var(--bark-light);
+    }
+    .faq-answer p { margin-bottom: 12px; }
+    .faq-answer p:last-child { margin-bottom: 0; }
   </style>
 </head>
 <body>
@@ -721,6 +778,100 @@
       <span style="display:block;font-size:12px;font-weight:300;letter-spacing:0.02em;opacity:0.85;margin-top:4px;">agneta-dog-training.github.io/booking</span>
     </a>
   </div>
+
+  <!-- SECTION: FAQ -->
+  <div style="border-top:1px solid var(--rule);padding-top:36px;margin-bottom:40px;position:relative;z-index:1;">
+    <p style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:400;font-style:italic;color:var(--bark);margin-bottom:20px;">Questions you might have.</p>
+  <details class="faq-item">
+    <summary><span>How is this different from the trainers I've already worked with?</span><span class="faq-icon"></span></summary>
+    <div class="faq-answer">
+      <p>Training teaches skills, and skills matter a lot! But behaviour issues usually involve more than a gap in skills, especially when there are big feelings involved, like with reactivity, fear, anxiety, aggression, or even overexcitement.</p>
+      <p>Those cases need support that looks at the whole picture and addresses what's actually driving the behaviour, instead of just drilling training exercises and wondering why nothing is shifting.</p>
+      <p>Most of my clients come to me having already worked with at least one other trainer. They've usually made some progress and then their dog's behaviour plateaued, or started sliding backward.</p>
+      <p>There are two main things I tend to do differently. First, I assess what else is likely driving the behaviour, whether that's emotional, physical, medical, or psychiatric, and I work alongside your veterinarian, veterinary behaviourist, canine physiotherapist, etc. where needed.</p>
+      <p>Second, you get support between sessions. Most behaviour work happens when I'm not there, and that's exactly when the plan meets reality and things risk going sideways. Feedback in that moment, rather than weeks later, changes what's possible.</p>
+    </div>
+  </details>
+  <details class="faq-item">
+    <summary><span>Can I book just a single session, or extend past four months?</span><span class="faq-icon"></span></summary>
+    <div class="faq-answer">
+      <p>I don't offer single sessions to new clients, and here's the honest why. The cases I take on are complex enough that they need ongoing support to get you where you want to go.</p>
+      <p>Behaviour change needs time, consistency, practice, and support, and in my experience this package length and structure is ideal for making real, lasting progress on most behaviour concerns.</p>
+      <p>If your dog's behaviour can genuinely be sorted in a session or two, that's great news! It also means I'm not your best fit, and I'll happily point you toward someone who is.</p>
+      <p>Some complex cases, or dogs with several behaviour concerns, may benefit from continued work past the four months. Flexible ongoing support is available at a reduced rate for existing clients.</p>
+    </div>
+  </details>
+  <details class="faq-item">
+    <summary><span>What if it's not the right fit? Do you offer refunds?</span><span class="faq-icon"></span></summary>
+    <div class="faq-answer">
+      <p>All sales are final, because I only take on cases we've both agreed are a good fit.</p>
+      <p>This package is for clients who are ready to work on their dog's behaviour issues and can commit an hour or two a week to working with their dog.</p>
+      <p>Every booking starts with a free 20-minute intro call, or a New Client Application Form if you'd rather not have a call. This is your chance to ask me questions, and it's also how I gauge whether your dog's case is within my scope at this time.</p>
+      <p>A good fit is more important for me than filling spots. If I don't think that's me, I'll tell you. I only take on cases I'm confident I can serve well.</p>
+    </div>
+  </details>
+  <details class="faq-item">
+    <summary><span>How soon will I see results, and can you guarantee them?</span><span class="faq-icon"></span></summary>
+    <div class="faq-answer">
+      <p>Any effective intervention should produce some shift fairly early. If we're not seeing that, it's my signal to troubleshoot or pivot. You won't find yourself months in, wondering when something is going to change.</p>
+      <p>That said, how long it takes to solve your dog's behaviour issues depends on how complex your dog's case is, your own training skillset, how much time and consistent practice you can realistically give it, and how much back-and-forth is needed with your vet for cases with a medical component.</p>
+      <p>I can't guarantee specific outcomes, because behaviour is not guaranteeable. Behaviour depends on genetics, history, health, environment, and a dozen other things neither of us fully controls.</p>
+      <p>What I do promise is full transparency, a rigorous behaviour change plan that is grounded in the behaviour sciences, and staying with you through it. In the vast majority of cases there's room for meaningful improvement, and I'll work with you to find solutions that are practical, sustainable, and feel good for both you and your dog.</p>
+    </div>
+  </details>
+  <details class="faq-item">
+    <summary><span>Are we going to change my dog's behaviour, or just manage it?</span><span class="faq-icon"></span></summary>
+    <div class="faq-answer">
+      <p>Both, and management isn't the compromise it sounds like. I think the worry comes from hearing management described as a bandaid, but good management is behaviour science applied proactively. It increases what you and your dog can do rather than shrinking your world, and without it, training alone often fails to produce lasting change.</p>
+      <p>So the answer is yes to behaviour change and yes to management. They work together.</p>
+    </div>
+  </details>
+  <details class="faq-item">
+    <summary><span>What training methods do you use?</span><span class="faq-icon"></span></summary>
+    <div class="faq-answer">
+      <p>I'm a force free, positive reinforcement based trainer, working within the modern animal welfare frameworks called LIFE (Least Inhibitive, Functionally Effective) and LIMA (Least Intrusive, Minimally Aversive).</p>
+      <p>In plain terms: no force, no pain, no fear, no intimidation.</p>
+      <p>You may hear trainers who use methods that suppress behaviour through the application of physical or psychological pressure say that force free/positive reinforcement based training is essentially the same as their approach, just without providing “feedback for the dog on what not to do.”</p>
+      <p>I respectfully disagree. The entire training approach is fundamentally different.</p>
+      <p>Instead of setting dogs up to make a mistake and then correcting them, I set them up to make the right choices and then reward them. In practice, that is a much bigger difference than it might sound.</p>
+      <p>A force free approach is not only kinder, but it is also more effective, because it teaches dogs to make better choices because they want to, and not simply because they're worried about what will happen if they don't. This kind of root-level behaviour change actually holds up long term, and doesn't cost you your dog's trust.</p>
+      <p>That's all the air time I will give this, as I'm not in the business of trying to change people's minds!</p>
+    </div>
+  </details>
+  <details class="faq-item">
+    <summary><span>I'm currently using a prong, e-collar, or choke chain. Can we work together?</span><span class="faq-icon"></span></summary>
+    <div class="faq-answer">
+      <p>If you are currently using a prong, e-collar, choke chain, or any other tool or method that is designed to suppress behaviour through the application of physical or psychological pressure, there's no judgement here. Most people use these tools and methods because they were told to do so by someone they trusted.</p>
+      <p>However, working with me means transitioning off them. I don't teach these tools and methods, and I don't work alongside them. There absolutely are always alternatives, and I stand by that statement.</p>
+      <p>So, if that is a change you've been wanting to make but have either not known how to or perhaps tried to but were met with judgement (I'm very sorry you experienced that!), I am here to help.</p>
+      <p>If you're committed to keeping these tools and are entirely certain that your dog needs them, then I'm not the right fit!</p>
+    </div>
+  </details>
+  <details class="faq-item">
+    <summary><span>I'm exhausted and I don't have much left to give. Can I even do this?</span><span class="faq-icon"></span></summary>
+    <div class="faq-answer">
+      <p>Yes, I build the behaviour change plan around how much you've actually got in the tank, not some fantasy version of you with unlimited time and energy. A plan you can't sustain isn't a good plan. It's just one more thing to feel stressed about. There are many potential solutions to any given problem, and we'll find one that fits your real life.</p>
+      <p>My only note is that the exact outcome will differ based on the approach. In all cases we can find a solution to the problem, but it will look different if you have a couple hours a week to work on it versus if you have next to no time available in your week. All positive outcomes are valid, just know that there are trade-offs and I can't work magic (unfortunately! I super wish I could though!)</p>
+      <p>Book a free 20-minute intro call and tell me about your situation. I'll tell you honestly what your options are and what you can expect within your time and energy.</p>
+    </div>
+  </details>
+  <details class="faq-item">
+    <summary><span>I'm not sure my dog's problem is big enough. Or maybe it's too big. Or maybe it's too late.</span><span class="faq-icon"></span></summary>
+    <div class="faq-answer">
+      <p>There's no such thing as a problem too small, but I don't do manners, working dog, sports dog, or service dog training! My focus is on pet dog behaviour issues that are making ordinary days harder than they need to be.</p>
+      <p>On too big or too late: in the vast majority of cases, meaningful change can happen.</p>
+      <p>Book a free 20-minute intro call and tell me about your situation. I'll give you my honest assessment, including whether I'm the right fit. If not, I'll point you toward someone who is. I only take on cases I'm confident I can serve well.</p>
+    </div>
+  </details>
+  </div>
+
+  <div style="text-align:center;margin:40px 0;position:relative;z-index:1;">
+    <a href="https://agneta-dog-training.github.io/booking/" target="_blank" style="display:inline-block;background:var(--accent);color:var(--warm-white);text-decoration:none;padding:16px 40px;">
+      <span style="display:block;font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:600;">Work with me &#8594;</span>
+      <span style="display:block;font-size:12px;font-weight:300;letter-spacing:0.02em;opacity:0.85;margin-top:4px;">agneta-dog-training.github.io/booking</span>
+    </a>
+  </div>
+
 
 </div>
 
